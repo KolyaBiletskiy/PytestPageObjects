@@ -7,7 +7,13 @@ Project structure:
                          * gitignore file
                          * conftest.py - the code that will be used in every test
                          * pytest.ini - pytest configuration file
-                         * requirements.txt - all the dependencies (lobraries)
+                         * requirements.txt - all the dependencies (libraries)
+
+
+To run all the tests except of smoke: "pytest -m "not smoke",
+smoke or sanity mark: "pytest -m "sanity or smoke",
+smoke and sanity mark: "pytest -m "sanity and smoke",
+to run all the tests: "pytest -v"
 
 
 

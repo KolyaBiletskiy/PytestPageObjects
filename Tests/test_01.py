@@ -3,7 +3,8 @@ import pytest
 from Pages.ToDoPages import SearchHelper
 
 
-@pytest.mark.Smoke
+@pytest.mark.smoke
+@pytest.mark.sanity
 def test_todo_input(browser):
     todo_main_page = SearchHelper(browser)
     todo_main_page.go_to_site()
@@ -18,7 +19,7 @@ def test_todo_input(browser):
     assert "John" and "adsadasdasd" in elements
 
 
-@pytest.mark.Sanity
+@pytest.mark.sanity
 def test_todo_input3(browser):
     todo_main_page = SearchHelper(browser)
     todo_main_page.go_to_site()
