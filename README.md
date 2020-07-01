@@ -6,6 +6,7 @@ Project structure:
 
                          * gitignore file
                          * conftest.py - the code that will be used in every test
+                         * pytest.ini - pytest configuration file
                          * requirements.txt - all the dependencies (lobraries)
 
 
