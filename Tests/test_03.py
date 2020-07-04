@@ -2,12 +2,11 @@ import pytest
 
 from Pages.ToDoPages import SearchHelper
 
-
 @pytest.mark.smoke
 class TodoTests:
     @pytest.mark.sanity
-    def test_todo_input(self, browser):
-        todo_main_page = SearchHelper(browser)
+    def test_todo_input(self, browser, env):
+        todo_main_page = SearchHelper(browser, env)
         todo_main_page.go_to_site()
         todo_main_page.enter_word("Hello")
         todo_main_page.press_enter()
@@ -21,8 +20,8 @@ class TodoTests:
 
 
     @pytest.mark.sanity
-    def test_todo_input3(self, browser):
-        todo_main_page = SearchHelper(browser)
+    def test_todo_input3(self, browser, env):
+        todo_main_page = SearchHelper(browser, env)
         todo_main_page.go_to_site()
         todo_main_page.enter_word("Hello")
         todo_main_page.press_enter()
@@ -35,8 +34,8 @@ class TodoTests:
         assert "John" and "Sanity" in elements
 
 
-    def test_todo_input2(self, browser):
-        todo_main_page = SearchHelper(browser)
+    def test_todo_input2(self, browser, env):
+        todo_main_page = SearchHelper(browser, env)
         todo_main_page.go_to_site()
         todo_main_page.enter_word("Hello")
         todo_main_page.press_enter()

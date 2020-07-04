@@ -5,10 +5,19 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 
 
-@pytest.fixture(scope="session")  # означает что данная функция-фикстура будет исполнятся только 1 раз за тестовую сессию
+@pytest.fixture(scope="session")  # means that current fixture will be executed once per session
 def browser():
     options = Options()
     # options.add_argument('--headless')
     driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=options)
-    yield driver  # разделяет функцию на часть — до тестов и после тестов.
+    yield driver  # divide function before and after test run
     driver.quit()
+
+
+def pytest_addoption(parser):
+    parser.addoption("--env", action="store", default="prod", help="Environment to run tests on")
+
+
+@pytest.fixture(scope="session")
+def env(request):
+    return request.config.getoption('--env')

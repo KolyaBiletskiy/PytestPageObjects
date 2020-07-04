@@ -5,8 +5,8 @@ from Pages.ToDoPages import SearchHelper
 
 @pytest.mark.smoke
 @pytest.mark.sanity
-def test_todo_input(browser):
-    todo_main_page = SearchHelper(browser)
+def test_todo_input(browser, env):
+    todo_main_page = SearchHelper(browser, env)
     todo_main_page.go_to_site()
     todo_main_page.enter_word("Hello")
     todo_main_page.press_enter()
@@ -20,8 +20,8 @@ def test_todo_input(browser):
 
 
 @pytest.mark.sanity
-def test_todo_input3(browser):
-    todo_main_page = SearchHelper(browser)
+def test_todo_input3(browser, env):
+    todo_main_page = SearchHelper(browser, env)
     todo_main_page.go_to_site()
     todo_main_page.enter_word("Hello")
     todo_main_page.press_enter()
@@ -35,8 +35,8 @@ def test_todo_input3(browser):
 
 
 @pytest.mark.Smoke
-def test_todo_input2(browser):
-    todo_main_page = SearchHelper(browser)
+def test_todo_input2(browser, env):
+    todo_main_page = SearchHelper(browser, env)
     todo_main_page.go_to_site()
     todo_main_page.enter_word("Hello")
     todo_main_page.press_enter()

@@ -1,12 +1,17 @@
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
 
 
 class BasePage:
 
-    def __init__(self, driver):
+    def __init__(self, driver, env):
         self.driver = driver
-        self.base_url = "http://todomvc-app-for-testing.surge.sh/"
+        self.base_url = {
+            'prod': 'http://todomvc-app-for-testing.surge.sh/',
+            'dev': 'http://todomvc-app-for-testing.surge.sh/dsadasd',
+            'stage': 'http://todomvc-app-for-testing.surge.sh/'
+        }[env]
 
     def find_element(self, locator, time=10):
         return WebDriverWait(self.driver, time).until(EC.presence_of_element_located(locator),
