@@ -35,7 +35,12 @@ def test_todo_input3(browser, env):
 
 
 @pytest.mark.Smoke
-def test_todo_input2(browser, env):
+@pytest.mark.parametrize('name', [
+    ('Mike'),
+    ('John'),
+    ('Markus')
+])  # means this test will run 3 times because we have 3 parameters
+def test_todo_input2(browser, env, name):
     todo_main_page = SearchHelper(browser, env)
     todo_main_page.go_to_site()
     todo_main_page.enter_word("Hello")
@@ -46,4 +51,4 @@ def test_todo_input2(browser, env):
     with open("list.txt", "w") as file:
         file.write(str(elements))
         file.close()
-    assert "John" in elements
+    assert name in elements

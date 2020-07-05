@@ -2,6 +2,8 @@ import pytest
 
 from Pages.ToDoPages import SearchHelper
 
+
+@pytest.mark.skip
 @pytest.mark.smoke
 class TodoTests:
     @pytest.mark.sanity

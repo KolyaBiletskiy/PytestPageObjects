@@ -3,3 +3,5 @@
 /.idea/
 /list.txt
 /assets/
+/geckodriver.log
+/result.xml
