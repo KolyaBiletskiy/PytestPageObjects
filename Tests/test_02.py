@@ -18,7 +18,7 @@ class TodoTests:
             file.close()
         assert "John" and "adsadasdasd" in elements
 
-
+    @pytest.mark.skip
     @pytest.mark.sanity
     def test_todo_input3(self, browser, env):
         todo_main_page = SearchHelper(browser, env)
