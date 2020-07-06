@@ -3,7 +3,7 @@ import pytest
 from Pages.ToDoPages import SearchHelper
 
 @pytest.mark.smoke
-@pytest.mark.skip
+# @pytest.mark.skip
 class TodoTests:
     @pytest.mark.sanity
     def test_todo_input(self, browser, env):

@@ -15,8 +15,13 @@ from selenium.webdriver.chrome.options import Options
 """
 In this case the tests will be run both on chrome and firefox and the webdrivers should be places in the
 default location, for instance, on mac "usr/local/bin"
+scope desc:
+function	Run once per test
+class	Run once per class of tests
+module	Run once per module
+session	Run once per session
 """
-@pytest.fixture(params=[webdriver.Chrome, webdriver.Firefox], scope='session')
+@pytest.fixture(params=[webdriver.Chrome, webdriver.Firefox], scope='module')
 def browser(request):
     driver = request.param
     drvr = driver()
