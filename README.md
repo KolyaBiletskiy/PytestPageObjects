@@ -24,4 +24,9 @@ pytest -s -v -nauto: will automatically detect the optimized number of threads
 
 
 
+create venv
+activate venv
+place the drivers into bin folder under venv
+
+
 
