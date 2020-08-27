@@ -21,7 +21,7 @@ class ApiHeadersTests:
     def test_parameters(self):
         param = {'name': 'nick', 'age': '24'}
 
-        response = requests.get(api_endpoint, params=param)
+        response = requests.get(api_endpoint, params=param, timeout=3)
         print(response.text)
 
 

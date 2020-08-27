@@ -22,3 +22,8 @@ class BasePage:
 
     def go_to_site(self):
         return self.driver.get(self.base_url)
+
+    def wait_tab(self, num, time=10):
+        return WebDriverWait(self.driver, time).until(EC.number_of_windows_to_be(num),
+                                                      message=f"Can't find enough number of windows - {num}")
+

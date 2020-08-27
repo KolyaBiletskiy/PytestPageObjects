@@ -7,29 +7,23 @@ import jsonpath
 @pytest.mark.api
 class ApiPatchTests:
 
-
     def test_put(self):
         api_endpoint = 'https://reqres.in/api/users/2'
 
-        with open('/Users/nick/PycharmProjects/PytestPageObjects/data.json', 'r') as myfile:
-            content = myfile.read()  # we read the content as str
+        resp = requests.get(api_endpoint)
+        res = json.loads(resp.text)
+        json_res = jsonpath.jsonpath(res, "data.first_name")
+        print(json_res[0])
 
-        request_json = json.loads(content)  # here we transform to the dict (json)
+        # with open('/Users/nick/PycharmProjects/PytestPageObjects/data.json', 'r') as myfile:
+        #     content = myfile.read()  # we read the content as str
 
-        response = requests.put(api_endpoint, request_json)
+        # request_json = json.loads(content)  # here we transform to the dict (json)
 
-        response_json = json.loads(response.text)
-        updated = jsonpath.jsonpath(response_json, "updatedAt")
-        print(updated[0])
+        response = requests.patch(api_endpoint, data={'first_name': 'Nick'})
 
+        print(response.text)
 
-
-
-
-
-
-
-
-
-
-
+        # response_json = json.loads(response.text)
+        # updated = jsonpath.jsonpath(response_json, "data")
+        # print(updated)

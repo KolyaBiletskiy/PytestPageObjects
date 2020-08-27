@@ -12,7 +12,7 @@ class ApiAuthTests:
 
 
     def test_basic(self):
-        response = requests.get(api_endpoint, auth=bas_auth('biletskiy.mykola@gmail.com', 'somepass'))
+        response = requests.get(api_endpoint, auth=bas_auth('some@gmail.com', 'somepass'))
         print(response.text)
 
     def test_oauth(self):
@@ -25,11 +25,9 @@ class ApiAuthTests:
         access_token = access_token[0]
 
         auth = {'Authorization': 'Bearer ' + access_token}
-
-
         api_endpoint = 'http://thetestingworldapi.com/api/StDetails/1104'
-
         response = requests.get(api_endpoint, headers=auth)
+
         print(response.text)
 
 

@@ -44,18 +44,18 @@ class ApiPostPutTests:
         print(updated[0])
 
     @pytest.mark.swagger
-    def test_swagger(self):
-        url = "http://localhost:8080/api/syncedWorkspace/9a5625c4-48a7-4be2-bbd3-1552ef07d503"
+    def test_join_synced_session(self):
+        url = "http://localhost:8080/api/notifications/fi/session/5b6827ac-e91b-405e-ac45-ff5cff8a57dd/syncedWorkspace"
 
-        response = requests.get(url)
-        assert response.status_code == 403
+        headers = {'X-AUTH-TOKEN': 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJmZGNlMjg0Ni1hZGU1LTQ2NTItODUyMi1hOTJjYTQ2NDg2YTIiLCJzdWIiOiJndWVzdC1lMDk5ZTRmZS0wYWU4LTQ5MTctYTRlMS1mZDYxMzY3YjYyNzAiLCJpYXQiOjE1OTQyODYzMDQsInJvbGVzIjpbIlJPTEVfR1VFU1QiXSwic2NvcGVzIjpbXSwiZXhwIjoxNjg3NTk4MzA0fQ.6cdslUTRmSnkwfNuP1tbhcAM3rY6qAug6mhm1HVbAaPWHQa06GOuPImREm-nrEvC6QMnO6d-26o9IYw8sbm-rw'
+                   }
+        file = open('/Users/nick/PycharmProjects/PytestPageObjects/data.json', 'r')
+        json_input = file.read()
+        request_json = json.loads(json_input)
 
-        headers = {'X-AUTH-TOKEN': 'eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiI4NjI1Y2IxMy1hMmEwLTRiNjAtYmYwOS1lMjllZmVlMzYyMDAiLCJzdWIiOiJmaSIsImlhdCI6MTU5NTI1NjE1Niwicm9sZXMiOlsiUk9MRV9GSSJdLCJzY29wZXMiOltdLCJleHAiOjE2ODg1NjgxNTZ9.sTl4XZWLISdc6bbLrrM9qNeJHqNw1cvcznkv64p-HCJauxsS7B8lbA-W3r7-nJSRGllbaBaXgw7mpzTYAFU3Nw'}
+        response = requests.post(url, json=request_json, headers=headers)
+        print(response.status_code)
 
-
-        response = requests.get(url, headers=headers)
-
-        assert response.status_code == 200
 
 
 

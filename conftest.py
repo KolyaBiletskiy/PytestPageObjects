@@ -7,10 +7,13 @@ from selenium.webdriver.chrome.options import Options
 @pytest.fixture(scope="session")  # means that current fixture will be executed once per session
 def browser():
     options = Options()
-    options.add_argument('--headless')
+    # options.add_argument('--headless')
     driver = webdriver.Chrome(ChromeDriverManager().install(), chrome_options=options)
+    driver.maximize_window()
     yield driver  # divide function before and after test run
     driver.quit()
+
+
 """
 In this case the tests will be run both on chrome and firefox and the webdrivers should be places in the
 default location, for instance, on mac "usr/local/bin"
